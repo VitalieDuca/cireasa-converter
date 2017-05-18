@@ -1,0 +1,30 @@
+:host {
+    height: 100%;
+}
+
+.wrapper {
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+
+#converter {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+#converter input,
+#converter select {
+    height: 50px;
+    padding: 10px;
+    font-size: 1.1em;
+}
+
+#converter .converter-group {
+    display: inline-block;
+}
+
+#converter .converter-group.cherry-group {
+    margin-right: 50px;
+}
