@@ -5,7 +5,7 @@ import { ConverterComponent } from './converter.component';
 @NgModule({
   imports: [
     RouterModule.forChild([
-      { path: 'converter', component: ConverterComponent }
+      { path: '', component: ConverterComponent }
     ])
   ],
   exports: [RouterModule]

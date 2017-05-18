@@ -6,7 +6,7 @@ import {
 } from '@angular/core/testing';
 
 import { ConverterModule } from './converter.module';
-import { ConverterComponent } from "./converter.component";
+import { ConverterComponent } from './converter.component';
 
 export function main() {
    describe('About component', () => {

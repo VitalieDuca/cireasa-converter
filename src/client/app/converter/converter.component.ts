@@ -10,7 +10,7 @@ import { OnInit } from '@angular/core';
 
 export class ConverterComponent {
   cherriesCost: number = 200;
-  
+
   cherryModifier: number = this.cherriesCost;
   valueModifier: number = 1;
 
@@ -52,21 +52,23 @@ export class ConverterComponent {
     value: 5300
   }];
 
-  constructor() {}
-  // credca trebuie de facut un model class pentru unitati si bani sa nu arate erori in editor 
+  constructor() {
+    //
+  }
+  // credca trebuie de facut un model class pentru unitati si bani sa nu arate erori in editor
   onCherriesChange(selectedValue: string): void {
-    let unitFound: Object = this.cherryUnits.find((unit) => {
-      return (unit.name == selectedValue);
-    })
+    let unitFound: any = this.cherryUnits.find((unit: any) => {
+      return (unit.name === selectedValue);
+    });
     this.cherryModifier = unitFound.value;
     console.log(this.cherryModifier);
-    this.updateValues(document.forms['converterForm'].cherries);
+    this.updateValues((<any>document.forms)['converterForm'].cherries);
   }
 
   onValuesChange(selectedValue: string): void {
-    let unitFound: Object = this.valuesUnits.find((unit) => {
-      return (unit.name == selectedValue);
-    })
+    let unitFound: any = this.valuesUnits.find((unit: any) => {
+      return (unit.name === selectedValue);
+    });
 
     this.valueModifier = unitFound.value;
     console.log(this.valueModifier);
@@ -74,9 +76,9 @@ export class ConverterComponent {
   }
 
   updateValues(event: Object): void {
-    let form: HTMLCollection = document.forms['converterForm'];
-    if (event === form.cherries) {
-      this.value =  this.cherryModifier * this.cherries / this.valueModifier;
+    let form: HTMLCollection = (<any>document.forms)['converterForm'];
+    if (event === (<any>form).cherries) {
+      this.value = this.cherryModifier * this.cherries / this.valueModifier;
     } else {
       this.cherries = this.value / this.cherriesCost * this.valueModifier;
     }

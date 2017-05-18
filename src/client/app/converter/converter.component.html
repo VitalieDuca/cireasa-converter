@@ -2,14 +2,14 @@
   <div id="converter">
     <form name="converterForm">
       <div class="converter-group cherry-group">
-        <h2>Cherries</h2>
+        <h2>Cireșe</h2>
         <input type="number" name="cherries" [(ngModel)]="cherries" step="0.01" (keyup)="updateValues($event.target)">
         <select name="cherryUnits" (change)="onCherriesChange($event.target.value)">
             <option *ngFor="let unit of cherryUnits" [ngValue]="unit.value">{{unit.name}}</option>
         </select>
       </div>
       <div class="converter-group values-group">
-        <h2>Values</h2>
+        <h2>Valorează</h2>
         <input type="number" name="values" [(ngModel)]="value" step="0.01" (keyup)="updateValues($event.target)">
         <select name="valuesUnits" (change)="onValuesChange($event.target.value)">
             <option *ngFor="let unit of valuesUnits" [ngValue]="unit.value">{{unit.name}}</option>
