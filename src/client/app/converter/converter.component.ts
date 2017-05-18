@@ -72,15 +72,19 @@ export class ConverterComponent {
 
     this.valueModifier = unitFound.value;
     console.log(this.valueModifier);
-    this.value = this.cherryModifier / this.valueModifier * this.cherries;
+    this.value = Math.round(100 * this.cherryModifier / this.valueModifier * this.cherries) / 100;
+    this.cherries = Math.round(100 * (this.value * this.valueModifier) / this.cherryModifier) / 100;
   }
 
   updateValues(event: Object): void {
+    console.log(this.cherriesCost);
     let form: HTMLCollection = (<any>document.forms)['converterForm'];
     if (event === (<any>form).cherries) {
-      this.value = this.cherryModifier * this.cherries / this.valueModifier;
+      console.log('ch');
+      this.value = Math.round(100 * this.cherryModifier / this.valueModifier * this.cherries) / 100;
     } else {
-      this.cherries = this.value / this.cherriesCost * this.valueModifier;
+      console.log('val', this.value, this.valueModifier, this.cherryModifier, this.cherriesCost);
+      this.cherries = Math.round(100 * (this.value * this.valueModifier) / this.cherryModifier) / 100;
     }
   }
 }
